@@ -1,26 +1,24 @@
-require "spec_helper"
+require 'spec_helper'
 require 'typhoeus'
 require 'json'
 
-describe "NumbersClient" do
+describe 'NumbersClient' do
   subject { NumbersClient }
 
-  describe "index" do
+  describe 'index' do
     let(:request) { double('request', run: response) }
     let(:response) { double('response', code: 200, body: numbers.to_json) }
 
     let(:numbers) do
       {
-          'pagination' => { 'current_page' => 1, 'total_pages' => 50, 'total_entries' => 100 },
-          'entries' =>
+        'pagination' => { 'current_page' => 1, 'total_pages' => 50, 'total_entries' => 100 },
+        'entries' =>
               [
-                  { 'number' => 1,
-                    'fizz_buzz_value' => 1,
-                    'favourite' => false
-                  }, { 'number' => 2,
-                       'fizz_buzz_value' => 2,
-                       'favourite' => false
-                  }
+                { 'number' => 1,
+                  'fizz_buzz_value' => 1,
+                  'favourite' => false }, { 'number' => 2,
+                                            'fizz_buzz_value' => 2,
+                                            'favourite' => false }
               ]
       }
     end
@@ -31,9 +29,9 @@ describe "NumbersClient" do
 
     it 'makes a get request to the FizzBuzz service' do
       expect(Typhoeus::Request).to receive(:new)
-                                       .with('http://localhost:4000/api/numbers',
-                                             { method: :get,
-                                               params: {current_page: 1, page_size: 2, format: :json}} )
+        .with('http://localhost:4000/api/numbers',
+              method: :get,
+              params: { current_page: 1, page_size: 2, format: :json })
       subject.index(current_page: 1, page_size: 2)
     end
 

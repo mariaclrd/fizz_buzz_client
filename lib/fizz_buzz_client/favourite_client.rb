@@ -15,9 +15,9 @@ module FizzBuzzClient
 
     def self.params(number)
       {
-          method: :post,
-          params: {format: :json},
-          body: {number: number}
+        method: :post,
+        params: { format: :json },
+        body: { number: number }
       }
     end
   end

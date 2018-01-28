@@ -1,14 +1,13 @@
-require "spec_helper"
+require 'spec_helper'
 require 'typhoeus'
 require 'json'
 
-describe "FavouriteClient" do
+describe 'FavouriteClient' do
   subject { FavouriteClient }
 
-  describe "set" do
+  describe 'set' do
     let(:request) { double('request', run: response) }
     let(:response) { double('response', code: 201) }
-
 
     before do
       allow(Typhoeus::Request).to receive(:new).and_return(request)
@@ -16,10 +15,10 @@ describe "FavouriteClient" do
 
     it 'makes a get request to the FizzBuzz service' do
       expect(Typhoeus::Request).to receive(:new)
-                                       .with('http://localhost:4000/api/favourites',
-                                             { method: :post,
-                                               params: {format: :json},
-                                               body: {number: 1} })
+        .with('http://localhost:4000/api/favourites',
+              method: :post,
+              params: { format: :json },
+              body: { number: 1 })
       subject.save(number: 1)
     end
 
