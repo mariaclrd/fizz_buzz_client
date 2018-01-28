@@ -3,10 +3,11 @@ require 'json'
 
 module FizzBuzzClient
   module NumbersClient
-    FIZZ_BUZZ_URL = 'http://localhost:4000/api/numbers'.freeze
+    NUMBERS_PATH = '/api/numbers'.freeze
 
     def self.index(current_page: 1, page_size: 100)
-      response = Typhoeus::Request.new(FIZZ_BUZZ_URL, params(current_page, page_size)).run
+      url = FizzBuzzClient.fizz_buzz_url + NUMBERS_PATH
+      response = Typhoeus::Request.new(url, params(current_page, page_size)).run
       JSON.parse(response.body)["entries"] if response.code == 200
     end
 

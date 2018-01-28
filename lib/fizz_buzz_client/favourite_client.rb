@@ -3,10 +3,11 @@ require 'json'
 
 module FizzBuzzClient
   module FavouriteClient
-    FIZZ_BUZZ_URL = 'http://localhost:4000/api/favourites'.freeze
+    FAVOURITES_PATH = '/api/favourites'.freeze
 
     def self.save(number:)
-      response = Typhoeus::Request.new(FIZZ_BUZZ_URL, params(number)).run
+      url = FizzBuzzClient.fizz_buzz_url + FAVOURITES_PATH
+      response = Typhoeus::Request.new(url, params(number)).run
       response.code == 201
     end
 
