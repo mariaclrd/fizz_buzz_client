@@ -3,7 +3,7 @@ require 'json'
 
 module FizzBuzzClient
   module FavouriteClient
-    FIZZ_BUZZ_URL = 'http://localhost:4000/api/favourite'.freeze
+    FIZZ_BUZZ_URL = 'http://localhost:4000/api/favourites'.freeze
 
     def self.save(number:)
       response = Typhoeus::Request.new(FIZZ_BUZZ_URL, params(number)).run
@@ -16,7 +16,7 @@ module FizzBuzzClient
       {
           method: :post,
           params: {format: :json},
-          body: JSON.dump({number: number})
+          body: {number: number}
       }
     end
   end

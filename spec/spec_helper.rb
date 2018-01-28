@@ -2,8 +2,6 @@ require 'rubygems'
 require 'rspec'
 require 'pry'
 
-ENV['RACK_ENV'] = 'test'
-
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e

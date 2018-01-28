@@ -16,10 +16,10 @@ describe "FavouriteClient" do
 
     it 'makes a get request to the FizzBuzz service' do
       expect(Typhoeus::Request).to receive(:new)
-                                       .with('http://localhost:4000/api/favourite',
+                                       .with('http://localhost:4000/api/favourites',
                                              { method: :post,
                                                params: {format: :json},
-                                               body: JSON.dump({number: 1}) })
+                                               body: {number: 1} })
       subject.save(number: 1)
     end
 
