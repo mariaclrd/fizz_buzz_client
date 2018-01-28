@@ -12,7 +12,7 @@ module FizzBuzzClient
       found_number["fizz_buzz_value"] if found_number
     end
 
-    def find_numbers(page_size = 100, current_page: 1)
+    def find_numbers(page_size: 100, current_page: 1)
       NumbersClient.index({current_page: current_page, page_size: page_size})
     end
 
