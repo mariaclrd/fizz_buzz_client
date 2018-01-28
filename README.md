@@ -5,7 +5,7 @@ Console utility to consume the FizzBuzz API.
   * Run the tests with`bundle exec rspec`
   * To see the list of available commands `./cli`
   
-#Commands
+# Commands
 
 Available commands: 
 
@@ -26,7 +26,7 @@ Example:
 10 is Buzz
 ```
 
-#Configuration
+# Configuration
 
 You can configure the application to point to the server running in another location modifying the file 'application.yml'
 on the config folder.
