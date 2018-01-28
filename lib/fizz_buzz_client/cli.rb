@@ -34,8 +34,6 @@ module FizzBuzzClient
     desc 'favourite', 'Allows to store your favourite nubmer on the collection'
     def favourite(options = {})
       return puts "You need to pass a number" if options.empty?
-      require 'pry'
-      binding.pry
 
       success = FavouriteClient.save(options[:number])
 
